@@ -1,0 +1,91 @@
+watermark_app/
+│
+├── main.py               # Entry point ng app, GUI setup at event loop
+├── watermark.py          # Core logic: image watermarking functions (text & logo)
+├── batch_processor.py    # Batch processing functions for multiple images
+├── presets.py            # Save/load of watermark presets/settings
+├── image_editor.py       # Resize, crop, and other image manipulation features
+├── ui_utils.py           # Helper functions for UI elements (e.g., color pickers, fonts)
+├── config.py             # Global configs (default colors, fonts, file paths)
+├── dark_mode.py          # Dark mode theme management
+├── dragdrop.py           # Drag & drop file upload handling
+├── undo_redo.py          # Undo/Redo management logic
+├── progressbar.py        # Progress bar management for batch processing
+└── assets/               # Folder for logos, fonts, icons, and sample images
+      ├── logos/
+      ├── fonts/
+      └── icons/
+
+
+Explanation ng bawat file:
+main.py
+
+dito gagawa ng main window at ilalagay lahat ng UI widgets (buttons, menus, inputs)
+
+dito rin kukunin ang user inputs at tatawagin ang ibang modules para magproseso
+
+watermark.py
+
+mga function para sa paglagay ng text watermark o logo watermark sa isang image gamit Pillow
+
+batch_processor.py
+
+functions para i-handle ang pag-proseso ng maraming images sabay-sabay, kasama ang auto renaming
+
+presets.py
+
+functions para mag-save at mag-load ng watermark settings (text, font, size, position, opacity, etc.)
+
+pwedeng JSON or simple config file ang format
+
+image_editor.py
+
+image resizing, cropping, or other manipulation bago i-apply ang watermark
+
+ui_utils.py
+
+helper functions para sa UI, tulad ng color picker dialogs, font selectors, validation helpers
+
+config.py
+
+global variables tulad ng default colors, font paths, supported file types, etc.
+
+dark_mode.py
+
+code para i-toggle at i-apply ang dark mode theme sa buong app
+
+dragdrop.py
+
+functionality para sa drag-and-drop file upload sa main window
+
+undo_redo.py
+
+logic para mag-manage ng undo/redo states ng watermarking (e.g., history ng changes)
+
+progressbar.py
+
+functions para sa progress bar updates during batch processing
+
+assets/
+
+folder kung saan ilalagay lahat ng logos, fonts, icons na gagamitin sa app
+
+Workflow ng app:
+Sa main.py, user mag-uupload ng image(s) (via dialog or drag-drop)
+
+User mag-eenter ng watermark text o pipili ng logo watermark sa assets
+
+User pipili ng options (position, opacity, font, size) o maglo-load ng preset (via presets.py)
+
+Pwede i-edit image (resize/crop) gamit image_editor.py
+
+Pwede i-process ng batch gamit batch_processor.py, habang ipinapakita ang progress bar (galing sa progressbar.py)
+
+May undo/redo support gamit undo_redo.py
+
+Pwede mag-toggle ng dark mode via dark_mode.py
+
+UI helpers (fonts, colors) from ui_utils.py
+
+All assets (logos, fonts) sa assets/
+
